@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+    <script src="https://kit.fontawesome.com/6408192b9a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+  header{
+    position: fixed;
+    width:100%;
+    align-items: center;
+    display:flex;
+    right:0;
+    top:0;
+    z-index: 1000;
+   text-decoration: none;
+   
+    background-color:#aae499;
+    padding:0px;
+    height:75px;
+    font-weight: 600;
+    font-size: 15px;
+   }
+   .menu{
+        list-style: none;
+  }
+  .menu li{
+        display: inline-block;
+        padding: 5px 25px;
+    }
+    .menu li a{
+        display: block;
+        text-decoration: none;
+        color:#1a2428;
+        font-weight: 600;
+        padding:5px 10px;
+        margin-left: 15px;
+        font-size: 20px;
+    }
+    .menu li a:hover, .menu .home-active{
+        background-color: rgb(219, 172, 84);
+    border-radius: 25px;
+    }
+    .d-block{
+    width: 300px;
+    height: 500px;
+    padding: 90px 50px 10px;
+    background-color: rgb(190, 190, 238);
+}
+.footer{
+  background-color: #eacbea;
+}
+.daily{
+    width:200px;
+    height: 35px;
+    padding-right: 100px;
+    padding-top: 0%;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+#post{
+    font-size: 25px;
+    font-weight: 500;
+    padding-left: 30px;
+    margin-left: 0px;
+}
+
+.fa-envelope,.fa-phone{
+    padding-right: 5px;
+}
+.main{
+  list-style: none;
+    display:inline-block;
+    text-decoration:none;
+    font-weight: 500;
+} 
+
+.footer{
+    padding: 10px 7px;
+}
+
+p{
+  font-weight: 500;
+}
+
+
+</style>
+  </head>
+<body>
+  <header>
+    <a href="#" class="logo"><img src="data:image/png;base64,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" width="200px" height="75px"></a>
+  <div class="space"> 
+<ul class="menu">
+    <li><a href="home" class="home-active">Home</a></li>
+    <li><a href="http://127.0.0.1:5500/gproject/categories.html">Categories</a></li>
+    <li><a href="http://127.0.0.1:5500/gproject/products.html">Products</a></li>
+    <li><a href="http://127.0.0.1:5500/gproject/order.html">Order Now</a></li>
+    <li><a href="http://127.0.0.1:5500/gproject/about.html">About</a></li>
+</ul>
+</div>
+</header>
+<div class="row">
+    <div class="col">
+      <!-- Edit the elements below to make a carousel component: -->
+      <!-- Parent Carousel div -->
+      <div id="gardeningAlbum" class="carousel slide" data-ride="carousel">
+        <!-- Inner Carousel div -->
+        <div class="carousel-inner">
+          <!-- First slide div -->
+          <div class="carousel-item active">
+            <img src="https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="d-block w-100" alt="butterfly in field" width="500px" height="500px">
+          </div>
+          <!-- End of first slide -->
+          <!-- Second slide div -->
+          <div class="carousel-item">
+            <img src="https://media.istockphoto.com/photos/food-background-with-assortment-of-fresh-organic-vegetables-picture-id1203599923?s=612x612" class="d-block w-100" alt="colorful tulips"width="500px" height="500px">
+          </div>
+          <!-- End of second slide -->
+          <!-- Third slide div -->
+          <div class="carousel-item">
+            <img src="https://media.gettyimages.com/photos/dairy-products-shot-on-bluish-tint-background-picture-id909574006?k=20&m=909574006&s=612x612&w=0&h=Y1-lgg_D3O3BLrehLj1z9gGRhtlB2NIRmX5hBf86xgo=" class="d-block w-100" alt="inside of a greenhouse"width="500px" height="500px">
+          </div>
+          <!-- End of third slide -->
+        </div>
+        <!-- End of inner carousel -->
+        <!-- Add code for controls below: -->
+        <a class="carousel-control-prev" href="#gardeningAlbum" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#gardeningAlbum" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- End of carousel component -->
+    </div>
+  </div>
+  <!---footer-->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+            
+            <img src="data:image/png;base64,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" width="100px" height="75px" class="daily">
+          <p>Opposite Sangeetha mobiles<br>Javalistreet, 4th floor<br>Palamaner</p>
+          <div class="social">
+          <i class="fa-brands fa-facebook"></i>
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-youtube"></i>
+            </div>
+         </div>
+    
+        <div class="col-md-3">
+          <h5 id="post">Categories</h5>
+        <ul  class="main">
+          <li>Fruits</li>
+          <li>Vegetables</li>
+          <li>Dairy-Products</li>
+        </ul>
+        </div>
+        
+      
+  
+      <div class="col-md-3">
+        <h5 id="post">Useful Links</h5>
+        <ul class="main">
+          <li><a href="#">Payment and Tax</a></li>
+          <li><a href="#">Term of Use</a></li>
+          <li><a href="#">My Blog</a></li>
+        </ul>
+      </div>
+    
+      <div class="col-md-3">
+        <h5 id="post">Newslettrs</h5>
+        <p>Get 10% discount with<br>Email Newsletter</p>
+        <i class="fa-solid fa-envelope"></i>
+        <input type="text" placeholder="enter email id"><br>
+        <i class="fa-solid fa-phone"></i>  -<span>012 48079651</span>
+      </div>
+
+</div>
+
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
